@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server for mobile app",
+  "main": "App.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lm52738/Pole-Flow-App.git"
+  },
+  "author": "Lorena Martinović",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lm52738/Pole-Flow-App/issues"
+  },
+  "homepage": "https://github.com/lm52738/Pole-Flow-App#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
