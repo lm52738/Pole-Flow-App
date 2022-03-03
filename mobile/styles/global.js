@@ -17,7 +17,7 @@ export const mainStyles = StyleSheet.create({
 
 export const formStyles = StyleSheet.create({
     card: {
-        width: '80%',
+        width: '90%',
         backgroundColor: 'white',
         borderRadius: 20,
         marginTop: '5%',
@@ -53,13 +53,13 @@ export const formStyles = StyleSheet.create({
         flexWrap: 'wrap',
     },
     buttons: {
-        alignSelf: 'center',
+        justifyContent: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        width: '80%',
+        width: '100%',
     },
     buttonLogin: {
-        width: '45%',
+        width: '35%',
         height: 40,
         borderRadius: 10,
         justifyContent: 'center',
@@ -67,7 +67,7 @@ export const formStyles = StyleSheet.create({
         backgroundColor: '#ddb2e0',
     },
     buttonSignup: {
-        width: '55%',
+        width: '45%',
         height: 40,
         marginLeft: -15,
         borderRadius: 10,
@@ -93,4 +93,11 @@ export const formStyles = StyleSheet.create({
         fontSize: 16,
         marginVertical: '5%',
     },
+    radios: {
+        justifyContent: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        width: '100%',
+        paddingTop: '5%'
+    }
 });

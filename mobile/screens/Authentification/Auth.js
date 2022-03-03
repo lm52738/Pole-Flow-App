@@ -79,12 +79,10 @@ const Auth = () => {
                     <View style={formStyles.inputs}>
                         <TextInput style={formStyles.input} placeholder="Broj mobitela" autoCapitalize="none" onChangeText={setEmail}></TextInput>
                     </View> 
-                    <View style={formStyles.inline}>
-                        <RadioButtons />
-                    </View> 
+                    <RadioButtons />
                     <Text style={[formStyles.message, {color: isError ? 'red' : 'green'}]}>{message ? getMessage() : null}</Text>
                 </View>
-                <TouchableOpacity style={formStyles.buttonSubmit} onPress={onChangeHandler}>
+                <TouchableOpacity style={formStyles.buttonSubmit} onPress={() => alert("biraj raspored")}>
                     <Text style={formStyles.buttonText}>Dalje...</Text>
                 </TouchableOpacity>
             </View>
