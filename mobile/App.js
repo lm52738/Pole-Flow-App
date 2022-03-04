@@ -1,6 +1,7 @@
 import AuthScreen from './screens/Authentification/AuthScreen';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
+import OptionsCalendar from './screens/Authentification/FreeOptions';
 
 export default function App() {
 

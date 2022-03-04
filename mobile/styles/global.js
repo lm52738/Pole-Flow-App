@@ -13,6 +13,10 @@ export const mainStyles = StyleSheet.create({
         fontSize: 60,
         fontFamily: 'bauhaus'
     },
+    calendar: {
+        flex: 1,
+        marginTop: '20%'
+    }
 });
 
 export const formStyles = StyleSheet.create({
