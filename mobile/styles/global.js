@@ -1,33 +1,129 @@
 import { StyleSheet } from "react-native";
 
 export const mainStyles = StyleSheet.create({
-    container: {
+    safeArea: {
         flex: 1,
-        overflow: "scroll",
+        backgroundColor: 'white'
+    },
+    container: {
+        paddingBottom: '10%',
         alignItems: 'center',
     },
     heading: {
-        marginTop: '20%'
+        marginTop: '10%'
     },
     title: {
         fontSize: 60,
         fontFamily: 'bauhaus'
     },
-    calendar: {
-        flex: 1,
-        marginTop: '20%'
-    }
-});
-
-export const formStyles = StyleSheet.create({
+    header: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        width: '100%',
+        padding: '5%',
+        backgroundColor: '#b36cac'
+    },
     card: {
         width: '90%',
         backgroundColor: 'white',
-        borderRadius: 20,
         marginTop: '5%',
         elevation: 5,
         paddingVertical: '5%',
     },
+    newsTitle: {
+        fontSize: 16,
+        fontWeight: "700",
+        paddingBottom: 7,
+        paddingLeft: 10,
+    },
+    newsText: {
+        paddingHorizontal: 10,
+        paddingVertical: 7,
+    },
+});
+
+export const reminderStyles = StyleSheet.create({
+    reminder: {
+        marginLeft: '5%',
+        borderRadius: 8,
+        backgroundColor: '#b36cac',
+        paddingTop: 20,
+        paddingBottom: 10,
+        width: '55%',
+        height: 230,
+    },
+    reminderTitle: {
+        fontSize: 16,
+        color: 'white',
+        paddingHorizontal: 10,
+    },
+    reminderDate: {
+        color: 'white',
+        paddingHorizontal: 10,
+    },
+    divider: {
+        paddingTop: 5,
+        alignItems: 'center',
+        flex: 1,
+        borderTopColor: 'white',
+        borderTopWidth: 1,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+    },
+    reminderButtons: {
+        height: 120,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        alignContent: 'center',
+    },
+    button: {
+        borderRadius: 70,
+        backgroundColor: 'white',
+        height: 70,
+        width: 70,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    date: {
+        paddingLeft: '30%',
+    }
+});
+
+export const tableStyles = StyleSheet.create({
+    heading: {
+        marginTop: '10%',
+        fontSize: 20,
+    },
+    table: {
+        paddingVertical: '5%',
+    },
+    cell: {
+        flex: 1,
+        paddingHorizontal: '1%',
+        justifyContent: 'space-around',
+        height: '90%',
+    },
+    title: {
+        justifyContent: 'center',
+        backgroundColor: 'white',
+        marginTop: '5%',
+        elevation: 5,
+    }, 
+    text: {
+        width: '100%',
+        height: '100%',
+    },
+    row: {
+        height: 130,
+    },
+    header: {
+        justifyContent: 'center',
+    },
+});
+
+export const formStyles = StyleSheet.create({
     form: {
         flex: 1,
         justifyContent: 'space-between',
@@ -37,16 +133,11 @@ export const formStyles = StyleSheet.create({
     inputs: {
         width: '90%',
         flex: 1,
-        alignItems: 'flex-start',
         padding: '3%',
     },  
     input: {
-        width: '90%',
-        borderBottomWidth: 1,
-        borderBottomColor: 'black',
-        paddingTop: 10,
+        width: '100%',
         fontSize: 16, 
-        minHeight: 40,
     },
     inline: {
         width: '90%',
@@ -55,6 +146,10 @@ export const formStyles = StyleSheet.create({
         padding: '3%',
         flexDirection: 'row',
         flexWrap: 'wrap',
+    },
+    radioText: {
+        fontSize: 16,
+        paddingRight: 10
     },
     buttons: {
         justifyContent: 'center',

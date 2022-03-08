@@ -1,7 +1,11 @@
-import AuthScreen from './screens/Authentification/AuthScreen';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
-import OptionsCalendar from './screens/Authentification/FreeOptions';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AuthStack from './navigation/AuthStack';
+import AppStack from './navigation/AppStack';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
 
@@ -13,6 +17,8 @@ export default function App() {
     return <AppLoading />;
   }
   return (
-    <AuthScreen />
+    <NavigationContainer>
+      <AppStack />
+    </NavigationContainer>
   );
 }
