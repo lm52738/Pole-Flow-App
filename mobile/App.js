@@ -2,7 +2,6 @@ import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import AuthStack from './navigation/AuthStack';
 import AppStack from './navigation/AppStack';
 
 const Stack = createNativeStackNavigator();

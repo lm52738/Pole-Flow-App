@@ -1,18 +1,18 @@
 import React from 'react';
-import { ScrollView, View, Text } from 'react-native';
-import { mainStyles } from '../../styles/global';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Searchbar } from 'react-native-paper';
 import Header from '../Header';
+import Groups from './Groups';
 
 export default function GroupsScreen() {
+
     return (
-        <SafeAreaView style={mainStyles.safeArea}>
+        <SafeAreaView style={{flex:1,backgroundColor:'white'}}>
             <Header />
-            <ScrollView>
-                <View style={mainStyles.container}>
-                    <Text>Grupe</Text>
-                </View>
-            </ScrollView>  
+            <Searchbar
+                placeholder="Search"
+                />
+            <Groups />
         </SafeAreaView>
     );
 }

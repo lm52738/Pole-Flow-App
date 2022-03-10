@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const mainStyles = StyleSheet.create({
     safeArea: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     container: {
         paddingBottom: '10%',
@@ -43,9 +43,70 @@ export const mainStyles = StyleSheet.create({
     },
 });
 
+
+export const usersStyles = StyleSheet.create({
+    usersNav: {
+        flexDirection: 'row',
+        paddingVertical: 20,
+        justifyContent: 'center',
+    },
+    users: {
+        flex: 1,
+        width: '100%',
+        paddingBottom: '10%',
+    },
+    newUsers: {
+        width: '100%',
+        paddingVertical: 10,
+    },
+    userItem: {
+        paddingVertical: 15,
+        paddingHorizontal: 10,
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+    }, 
+    item: {
+        paddingVertical: 15,
+        paddingHorizontal: 10,
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        elevation: 15,
+        backgroundColor: 'white',
+    }, 
+    itemText: {
+        paddingLeft: 10,
+    }, 
+    itemIcon: {
+        marginLeft: 'auto',
+        paddingRight: 30,
+        alignSelf: 'center',
+        flexDirection: 'row',
+    },
+    modal: {
+        backgroundColor: 'white',
+        elevation: 10,
+        alignSelf: 'center',
+        width: '80%',
+        marginVertical: '50%',
+        paddingHorizontal: 10,
+        paddingVertical: 20,
+    },
+    modaltext: {
+        flexDirection: 'row',
+        marginBottom: 5,
+    }, 
+    modalLabel: {
+        paddingRight: 10,
+        fontWeight: "700",
+    }
+});
+
 export const reminderStyles = StyleSheet.create({
     reminder: {
         marginLeft: '5%',
+        marginBottom: 5,
         borderRadius: 8,
         backgroundColor: '#b36cac',
         paddingTop: 20,
@@ -198,5 +259,115 @@ export const formStyles = StyleSheet.create({
         flexWrap: 'wrap',
         width: '100%',
         paddingTop: '5%'
+    }
+});
+
+export const galleryStyles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#ffffff',
+      marginHorizontal: 2,
+    },
+    imageContainerStyle: {
+      flex: 1,
+      flexDirection: 'column',
+      margin: 2,
+    },
+    imageStyle: {
+      height: 120,
+      width: '100%',
+    },
+    fullImageStyle: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100%',
+      width: '98%',
+      resizeMode: 'contain',
+    },
+    modelStyle: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: 'rgba(0,0,0,0.4)',
+    },
+    closeButtonStyle: {
+      width: 25,
+      height: 25,
+      top: 50,
+      right: 20,
+      position: 'absolute',
+    },
+    addButton: {
+        marginVertical: 20,
+        width: '50%',
+        alignSelf: 'center',
+        height: 40,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#ffffff',
+        elevation: 3
+    }
+});
+
+export const profileStyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#ffffff',
+        paddingBottom: '5%',
+    },
+    info: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-around'
+    },
+    card: {
+        width: '40%',
+        backgroundColor: '#ffffff',
+        marginTop: '5%',
+        elevation: 5,
+    },
+    avatar: {
+        backgroundColor: '#ffffff',
+        alignSelf: 'center',
+        marginTop: 30,
+    },
+    label: {
+        paddingVertical: 10,
+        paddingLeft: 10,
+        color: '#666666',
+        fontSize: 10,
+        alignSelf: 'flex-start'
+    },
+    text: {
+        paddingHorizontal: 15,
+        paddingVertical: 15,
+        alignSelf: 'flex-start',
+    },
+    button: {
+        borderRadius: 30,
+        backgroundColor: '#b36cac',
+        height: 60,
+        width: 60,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: '65%',
+        marginTop: '-10%',
+    },
+});
+
+export const calendarStyles = StyleSheet.create({
+    item: {
+        backgroundColor: 'white',
+        flex: 1,
+        borderRadius: 5,
+        padding: 10,
+        marginRight: 10,
+        marginTop: 17
+    },
+    emptyDate: {
+        height: 15,
+        flex: 1,
+        paddingTop: 30
     }
 });

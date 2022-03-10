@@ -22,8 +22,11 @@ const Header = () => {
             <TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
                 <Feather name="user" size={24} color="black" />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('GroupsScreen')}>
+            <TouchableOpacity onPress={() => navigation.navigate('UsersScreen')}>
                 <Feather name="users" size={24} color="black" />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('GroupsScreen')}>
+                <FontAwesome5 name="users" size={24} color="black" />
             </TouchableOpacity>
         </View>
     );

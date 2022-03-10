@@ -7,6 +7,7 @@ import { DataTable } from 'react-native-paper';
 
 export default function Options() {
   const navigation = useNavigation();
+  const [color,setColor] = useState('true');
   const [terms, setTerms] = useState([
     { key: '1', since: '17', until:'19'},
     { key: '2', since: '19', until:'21'},
@@ -45,38 +46,28 @@ export default function Options() {
                     <DataTable.Row key={term.key} style={tableStyles.row}>
                       
                         <TouchableOpacity style={tableStyles.cell} onPress={pressHandler}>
-                          <DataTable.Title style={tableStyles.title}>
-                              <Text>
-                                {term.since} - {term.until}
-                              </Text>
+                          <DataTable.Title style={tableStyles.title} >
+                              <Text>{term.since} - {term.until}</Text>
                           </DataTable.Title>
                         </TouchableOpacity>
                         <TouchableOpacity style={tableStyles.cell} onPress={pressHandler}>
                           <DataTable.Title style={tableStyles.title}>
-                              <Text>
-                              {term.since} - {term.until}
-                              </Text>
+                              <Text>{term.since} - {term.until}</Text>
                           </DataTable.Title>
                         </TouchableOpacity>
                         <TouchableOpacity style={tableStyles.cell} onPress={pressHandler}>
                           <DataTable.Title style={tableStyles.title}>
-                              <Text>
-                              {term.since} - {term.until}
-                              </Text>
+                              <Text>{term.since} - {term.until}</Text>
                           </DataTable.Title>
                         </TouchableOpacity>
                         <TouchableOpacity style={tableStyles.cell} onPress={pressHandler}>
                           <DataTable.Title style={tableStyles.title}>
-                              <Text>
-                              {term.since} - {term.until}
-                              </Text>
+                              <Text>{term.since} - {term.until}</Text>
                           </DataTable.Title>
                         </TouchableOpacity>
                         <TouchableOpacity style={tableStyles.cell} onPress={pressHandler}>
                           <DataTable.Title style={tableStyles.title}>
-                              <Text>
-                              {term.since} - {term.until}
-                              </Text>
+                              <Text>{term.since} - {term.until}</Text>
                           </DataTable.Title>
                         </TouchableOpacity>
 
