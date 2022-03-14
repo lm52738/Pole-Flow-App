@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { usersStyles } from '../../styles/global';
-import { EvilIcons, FontAwesome5 } from '@expo/vector-icons';
+import { galleryStyles, usersStyles } from '../../styles/global';
+import { FontAwesome5 } from '@expo/vector-icons';
 import News from '../Main/News';
-import Reminder from '../Main/Reminder';
 
 export default function NewUsers() {
 
@@ -23,13 +22,16 @@ export default function NewUsers() {
             <FlatList
             ListFooterComponent={
                 <>
+                    <TouchableOpacity style={galleryStyles.addButton} onPress={() => navigation.navigate('AddNews')}>
+                        <Text style={{color:'black'}}>Nova obavijest!</Text>
+                    </TouchableOpacity>
                     <News />
                 </>
             }
                 data={users}
                 keyExtractor={item => item.key}
                 renderItem={({ item }) => (
-                    <View style={usersStyles.item}>
+                    <View style={usersStyles.userItem}>
                         <Text style={usersStyles.itemText}>{ item.firstName } { item.lastName }</Text>
                         <View style={usersStyles.itemIcon}>
                             <TouchableOpacity>

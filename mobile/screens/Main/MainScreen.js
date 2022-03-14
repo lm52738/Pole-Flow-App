@@ -5,13 +5,11 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from '../Header';
 import News from './News';
 import Reminder from './Reminder';
-import NewUsers from '../Users/NewUsers'
 
 export default function MainScreen() {
     return (
         <SafeAreaView style={mainStyles.safeArea}>
             <Header />
-            {/* <NewUsers /> */}
             <ScrollView>
                 <News />
                 <Reminder />

@@ -13,6 +13,9 @@ const Header = () => {
             <TouchableOpacity  onPress={() => navigation.navigate('MainScreen')}>
                 <FontAwesome5 name="home" size={24} color="black" />
             </TouchableOpacity>
+            <TouchableOpacity  onPress={() => navigation.navigate('AdminScreen')}>
+                <FontAwesome5 name="user-secret" size={24} color="black" />
+            </TouchableOpacity>
             <TouchableOpacity  onPress={() => navigation.navigate('CalendarScreen')}>
                 <FontAwesome name="calendar" size={24} color="black" />
             </TouchableOpacity>

@@ -11,9 +11,12 @@ import {
 } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { galleryStyles, formStyles } from '../../styles/global';
-// import FastImage from 'react-native-fast-image';
+import { useNavigation } from '@react-navigation/native';
+import AddMedia from './AddMedia';
 
 const Media = () => {
+
+  const navigation = useNavigation();
 
   const [imageuri, setImageuri] = useState('');
   const [modalVisibleStatus, setModalVisibleStatus] = useState(false);
@@ -66,7 +69,7 @@ const Media = () => {
           <FlatList
             ListHeaderComponent={
               <>
-              <TouchableOpacity style={galleryStyles.addButton}>
+              <TouchableOpacity style={galleryStyles.addButton} onPress={() => navigation.navigate('AddMedia')}>
                 <Text style={{color:'black'}}>Dodaj novo!</Text>
               </TouchableOpacity>
               </>
@@ -95,6 +98,42 @@ const Media = () => {
           />
         </View>
       )}
+
+
+      {/* <Modal
+      transparent={true}
+      animationType={'fade'}
+      visible={modal2}
+      onRequestClose={() => {
+        showModalFunction(!modal2, '');
+      }}>
+      <View style={galleryStyles.card}>
+            <TextInput 
+                mode='flat'  
+                style={galleryStyles.title} 
+                label="Naziv multimedije" 
+                activeUnderlineColor='#b36cac'
+                
+            >
+            </TextInput>
+            <View style={galleryStyles.form}>
+                    <View style={galleryStyles.inputs}>
+                        <TextInput 
+                            mode='outlined'  
+                            style={galleryStyles.input} 
+                            label="Učitaj sa uređaja" 
+                            activeOutlineColor='#b36cac' 
+                            right={<TextInput.Icon name="upload"/>}
+                        >
+                        </TextInput>
+                    </View>
+            </View>
+            <Divider />
+            <TouchableOpacity style={galleryStyles.publish}>
+                <Text style={{color: '#b36cac'}}>OBJAVI</Text>
+            </TouchableOpacity>
+        </View>
+      </Modal> */}
     </View>
   );
 };

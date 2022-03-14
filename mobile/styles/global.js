@@ -60,18 +60,20 @@ export const usersStyles = StyleSheet.create({
         paddingVertical: 10,
     },
     userItem: {
-        paddingVertical: 15,
+        paddingVertical: 10,
         paddingHorizontal: 10,
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'flex-start',
+        alignItems: 'center',
     }, 
     item: {
-        paddingVertical: 15,
+        paddingVertical: 10,
         paddingHorizontal: 10,
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'flex-start',
+        alignItems: 'center',
         elevation: 15,
         backgroundColor: 'white',
     }, 
@@ -80,8 +82,10 @@ export const usersStyles = StyleSheet.create({
     }, 
     itemIcon: {
         marginLeft: 'auto',
-        paddingRight: 30,
+        marginRight: 30,
+        padding: 10,
         alignSelf: 'center',
+        justifyContent: 'center',
         flexDirection: 'row',
     },
     modal: {
@@ -306,6 +310,35 @@ export const galleryStyles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#ffffff',
         elevation: 3
+    },
+    card: {
+        width: '90%',
+        backgroundColor: 'white',
+        marginTop: '5%',
+        elevation: 5,
+    },
+    title: {
+        width: '100%',
+        backgroundColor:'#ffffff'
+    },
+    form: {
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingVertical: 15,
+    },
+    inputs: {
+        width: '90%',
+        paddingBottom: 3,
+    },  
+    input: {
+        marginBottom: 20,
+        width: '100%',
+        backgroundColor:'#ffffff'
+    },
+    publish: {
+        alignSelf: 'flex-start',
+        marginLeft: 10,
+        paddingVertical: 10,
     }
 });
 

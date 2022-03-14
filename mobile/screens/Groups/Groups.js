@@ -75,55 +75,20 @@ export default function Groups() {
                 </View>
                 
             </Modal>
+
+
             <FlatList
                 data={groups}
                 keyExtractor={item => item.key}
                 renderItem={({ item }) => (
                     <TouchableOpacity style={usersStyles.item} onPress={() => setModalVisible(true)}>
                         <Text style={usersStyles.itemText}>{ item.firstName }</Text>
-                        <View style={usersStyles.itemIcon}>
-                            <TouchableOpacity>
-                                <Feather name="edit-2" size={15} color="black" />
-                            </TouchableOpacity>
-                            </View>
+                        <TouchableOpacity style={usersStyles.itemIcon}>
+                            <Feather name="edit-2" size={15} color="black" />
                         </TouchableOpacity>
+                    </TouchableOpacity>
                 )}
             />
         </View>
     );
 }
-
-{/* <Modal
-                                animationType="slide"
-                                transparent={false}
-                                visible={modalVisible}
-                                presentationStyle="formSheet"
-                                onRequestClose={() => {
-                                setModalVisible(!modalVisible);
-                                }}
-                            >
-                                <Text>Trener:</Text>
-                                <Text>Razina:</Text>
-                                <Text>Termin treninga:</Text>
-                                <FlatList
-                                data={users}
-                                keyExtractor={item => item.key}
-                                renderItem={({ item }) => (
-                                    <View>
-                                        <View style={usersStyles.userItem}>
-                                            <EvilIcons name="user" size={24} color="black" />
-                                            <Text style={usersStyles.itemText}>{ item.firstName } { item.lastName }</Text>
-                                            <View style={usersStyles.itemIcon}>
-                                                <TouchableOpacity>
-                                                    <Feather name="edit-2" size={15} color="black" />
-                                                </TouchableOpacity>
-                                                <TouchableOpacity style={{paddingLeft: 30}}>
-                                                    <Feather name="trash-2" size={15} color="black" />
-                                                </TouchableOpacity>
-                                            </View>
-                                        </View>
-                                        <Divider/>
-                                    </View>
-                                    )}
-                                />
-                            </Modal> */}
