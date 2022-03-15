@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import { View, Text, FlatList, TouchableOpacity, Modal } from 'react-native';
 import { Divider } from 'react-native-paper';
-import { usersStyles } from '../../styles/global';
+import { galleryStyles, usersStyles } from '../../styles/global';
 import { EvilIcons, Feather, FontAwesome5 } from '@expo/vector-icons';
 
 export default function Groups() {
+    
     const [groups, setGroups] = useState([
         { key: 1, firstName: 'Pole Flow 1'},
         { key: 2, firstName: 'Pole Flow 2'},

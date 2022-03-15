@@ -1,13 +1,19 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { Divider } from 'react-native-paper';
 import { mainStyles } from '../../styles/global';
+import { Feather } from '@expo/vector-icons';
 
 export default function News() {
     return (
         <View style={mainStyles.container}>
             <View style={mainStyles.card}>
-                <Text style={mainStyles.newsTitle}>Obavijest 1</Text>
+                <View style={mainStyles.newsInline}>
+                    <Text style={mainStyles.newsTitle}>Obavijest 1</Text>
+                    <TouchableOpacity style={mainStyles.newsIcon}>
+                        <Feather name="edit-2" size={15} color="black" />
+                    </TouchableOpacity>
+                </View>
                 <Divider />
                 <Text style={mainStyles.newsText}>
                     Light gray is a pale shade of gray with the hex code #D3D3D3, 

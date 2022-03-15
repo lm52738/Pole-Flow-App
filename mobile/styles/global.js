@@ -41,6 +41,18 @@ export const mainStyles = StyleSheet.create({
         paddingHorizontal: 10,
         paddingVertical: 7,
     },
+    newsIcon: {
+        marginLeft: 'auto',
+        marginRight: 30,
+        padding: 10,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
+    },
+    newsInline: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    }
 });
 
 
@@ -104,7 +116,16 @@ export const usersStyles = StyleSheet.create({
     modalLabel: {
         paddingRight: 10,
         fontWeight: "700",
-    }
+    },
+    input: {
+
+    }, 
+    form: {
+
+    },
+    inputs: {
+
+    },
 });
 
 export const reminderStyles = StyleSheet.create({
@@ -359,6 +380,14 @@ export const profileStyles = StyleSheet.create({
         backgroundColor: '#ffffff',
         marginTop: '5%',
         elevation: 5,
+        alignContent: 'flex-start',
+    },
+    cardWidth: {
+        width: '90%',
+        backgroundColor: '#ffffff',
+        marginTop: '5%',
+        elevation: 5,
+        alignContent:'flex-start',
     },
     avatar: {
         backgroundColor: '#ffffff',
@@ -370,12 +399,16 @@ export const profileStyles = StyleSheet.create({
         paddingLeft: 10,
         color: '#666666',
         fontSize: 10,
-        alignSelf: 'flex-start'
     },
     text: {
         paddingHorizontal: 15,
         paddingVertical: 15,
-        alignSelf: 'flex-start',
+    },
+    button2: {
+        height: 50,
+        width: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     button: {
         borderRadius: 30,
@@ -386,6 +419,10 @@ export const profileStyles = StyleSheet.create({
         alignItems: 'center',
         marginLeft: '65%',
         marginTop: '-10%',
+    },
+    inline: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
 });
 

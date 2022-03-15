@@ -110,6 +110,7 @@ const Form = () => {
                             mode='outlined' 
                             style={formStyles.input} 
                             label="Broj mobitela" 
+                            placeholder='000 0000 000'
                             activeOutlineColor='#b36cac'
                             left={<TextInput.Icon name="phone"  />}
                             >

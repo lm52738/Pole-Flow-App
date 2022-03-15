@@ -10,6 +10,9 @@ import UsersScreen from '../screens/Users/UsersScreen';
 import AddMedia from '../screens/Gallery/AddMedia';
 import AdminScreen from '../screens/Admin/AdminScreen';
 import AddNews from '../screens/Admin/AddNews';
+import AdminProfiles from '../screens/AdminProfiles/AdminProfiles';
+import EditProfile from '../screens/Profile/EditProfile';
+import AddGroup from '../screens/Groups/AddGroup';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +30,9 @@ const AppStack = () => {
         <Stack.Screen name="AddMedia" component={AddMedia}/>
         <Stack.Screen name="AdminScreen" component={AdminScreen}/>
         <Stack.Screen name="AddNews" component={AddNews}/>
+        <Stack.Screen name="AdminProfiles" component={AdminProfiles}/>
+        <Stack.Screen name="EditProfile" component={EditProfile}/>
+        <Stack.Screen name="AddGroup" component={AddGroup} />
       </Stack.Navigator>
   );
 }

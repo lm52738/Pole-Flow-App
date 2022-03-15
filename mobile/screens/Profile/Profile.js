@@ -3,12 +3,16 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { mainStyles, profileStyles } from '../../styles/global';
 import { Avatar, Divider } from 'react-native-paper';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Profile() {
+
+    const navigation = useNavigation();
+
     return (
         <View style={profileStyles.container}>
             <Avatar.Image size={200} style={profileStyles.avatar} source={require('../../assets/avatar.png')} />
-            <TouchableOpacity style={profileStyles.button}>
+            <TouchableOpacity style={profileStyles.button} onPress={() => navigation.navigate('EditProfile')}>
                 <Feather name="edit-2" size={24} color="white" />
             </TouchableOpacity>
             <View style={profileStyles.info}>

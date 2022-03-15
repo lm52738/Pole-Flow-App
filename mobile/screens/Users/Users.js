@@ -33,7 +33,7 @@ export default function Users() {
                 data={users}
                 keyExtractor={item => item.key}
                 renderItem={({ item }) => (
-                    <TouchableOpacity style={usersStyles.item} onPress={() => navigation.navigate('ProfileScreen')}>
+                    <TouchableOpacity style={usersStyles.item} onPress={() => navigation.navigate('AdminProfiles')}>
                         <EvilIcons name="user" size={24} color="black" />
                         <Text style={usersStyles.itemText}>{ item.firstName } { item.lastName }</Text>
                         <View style={usersStyles.itemIcon}>
