@@ -117,15 +117,6 @@ export const usersStyles = StyleSheet.create({
         paddingRight: 10,
         fontWeight: "700",
     },
-    input: {
-
-    }, 
-    form: {
-
-    },
-    inputs: {
-
-    },
 });
 
 export const reminderStyles = StyleSheet.create({

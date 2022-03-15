@@ -9,7 +9,7 @@ export default function AddGroup() {
     return (
         <SafeAreaView style={mainStyles.safeArea}>
             <Header />
-            <ScrollView>
+            <ScrollView nestedScrollEnabled={true}>
                 <View style={mainStyles.container}>
                     <Add />
                 </View>
