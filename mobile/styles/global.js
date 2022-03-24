@@ -6,7 +6,7 @@ export const mainStyles = StyleSheet.create({
         backgroundColor: 'white',
     },
     container: {
-        paddingBottom: '10%',
+        paddingBottom: '5%',
         alignItems: 'center',
     },
     heading: {
@@ -20,9 +20,11 @@ export const mainStyles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'space-around',
+        alignItems:'center',
         width: '100%',
-        padding: '5%',
-        backgroundColor: '#b36cac'
+        paddingVertical: 10,
+        paddingHorizontal:'5%',
+        backgroundColor: '#b36cac',
     },
     card: {
         width: '90%',
@@ -79,6 +81,13 @@ export const usersStyles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
     }, 
+    newUserItem: {
+        paddingHorizontal: 10,
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+    },
     item: {
         paddingVertical: 10,
         paddingHorizontal: 10,
@@ -91,14 +100,26 @@ export const usersStyles = StyleSheet.create({
     }, 
     itemText: {
         paddingLeft: 10,
+        flex:2,
     }, 
     itemIcon: {
+        flex:1,
+        flexDirection: 'row',
         marginLeft: 'auto',
         marginRight: 30,
-        padding: 10,
-        alignSelf: 'center',
         justifyContent: 'center',
+        alignSelf: 'center',
+    },
+    itemIconEdit: {
+        flex:1,
         flexDirection: 'row',
+        marginLeft:50,
+        justifyContent: 'center',
+        alignSelf: 'center',
+    },
+    icon: {
+        flex:1,
+        padding:10,
     },
     modal: {
         backgroundColor: 'white',
@@ -111,6 +132,7 @@ export const usersStyles = StyleSheet.create({
     },
     modaltext: {
         flexDirection: 'row',
+        width:'100%',
         marginBottom: 5,
     }, 
     modalLabel: {
@@ -171,7 +193,7 @@ export const reminderStyles = StyleSheet.create({
 export const tableStyles = StyleSheet.create({
     heading: {
         marginTop: '10%',
-        fontSize: 20,
+        alignItems:'center',
     },
     table: {
         paddingVertical: '5%',
@@ -388,7 +410,7 @@ export const profileStyles = StyleSheet.create({
     label: {
         paddingVertical: 10,
         paddingLeft: 10,
-        color: '#666666',
+        color: '#808080',
         fontSize: 10,
     },
     text: {

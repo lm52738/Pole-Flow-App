@@ -1,14 +1,12 @@
 import React from 'react';
 import { mainStyles } from '../../styles/global';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import Header from '../Header';
 import Media from './Media';
+import { View } from 'react-native';
 
 export default function GalleryScreen() {
     return (
-        <SafeAreaView style={mainStyles.safeArea}>
-            <Header />
+        <View style={mainStyles.safeArea}>
             <Media /> 
-        </SafeAreaView>
+        </View>
     );
 }

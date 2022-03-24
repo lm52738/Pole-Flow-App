@@ -46,6 +46,9 @@ export default function Groups() {
                     <View style={usersStyles.modaltext}>
                         <Text style={usersStyles.modalLabel}>Trener:</Text>
                         <Text>Marta Špoljarić</Text>
+                        <TouchableOpacity style={usersStyles.itemIconEdit}>
+                            <Feather name="edit-2" size={20} color="black" />
+                        </TouchableOpacity>
                     </View>
                     <View style={usersStyles.modaltext}>
                         <Text style={usersStyles.modalLabel}>Razina:</Text>
@@ -84,9 +87,6 @@ export default function Groups() {
                 renderItem={({ item }) => (
                     <TouchableOpacity style={usersStyles.item} onPress={() => setModalVisible(true)}>
                         <Text style={usersStyles.itemText}>{ item.firstName }</Text>
-                        <TouchableOpacity style={usersStyles.itemIcon}>
-                            <Feather name="edit-2" size={15} color="black" />
-                        </TouchableOpacity>
                     </TouchableOpacity>
                 )}
             />

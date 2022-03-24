@@ -17,9 +17,6 @@ export default function Profile() {
                         <TouchableOpacity style={profileStyles.button2}>
                             <FontAwesome5 name="check" size={24} color="#b36cac" />
                         </TouchableOpacity>
-                        <TouchableOpacity style={profileStyles.button2}>
-                            <FontAwesome5 name="times" size={24} color="#b36cac" />
-                        </TouchableOpacity>
                     </View>
                     
                 </View>

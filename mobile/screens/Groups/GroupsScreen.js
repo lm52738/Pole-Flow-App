@@ -1,10 +1,9 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Searchbar } from 'react-native-paper';
-import Header from '../Header';
 import Groups from './Groups';
-import { Text, TouchableOpacity } from 'react-native';
-import { galleryStyles } from '../../styles/global';
+import { Text, TouchableOpacity, View } from 'react-native';
+import { galleryStyles, mainStyles } from '../../styles/global';
 import { useNavigation } from '@react-navigation/native';
 
 export default function GroupsScreen() {
@@ -12,8 +11,7 @@ export default function GroupsScreen() {
     const navigation = useNavigation();
 
     return (
-        <SafeAreaView style={{flex:1,backgroundColor:'white'}}>
-            <Header />
+        <View style={mainStyles.safeArea}>
             <TouchableOpacity style={galleryStyles.addButton} onPress={() => navigation.navigate('AddGroup')}>
                 <Text style={{color:'black'}}>Dodaj novu grupu</Text>
             </TouchableOpacity>
@@ -21,6 +19,6 @@ export default function GroupsScreen() {
                 placeholder="Search"
                 />
             <Groups />
-        </SafeAreaView>
+        </View>
     );
 }

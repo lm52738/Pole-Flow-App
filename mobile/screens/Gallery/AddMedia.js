@@ -2,18 +2,14 @@ import React from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { mainStyles } from '../../styles/global';
-import Header from '../Header';
 import Add from './Add';
 
 export default function AddMedia() {
     return (
-        <SafeAreaView style={mainStyles.safeArea}>
-            <Header />
-            <ScrollView>
+            <ScrollView style={mainStyles.safeArea}>
                 <View style={mainStyles.container}>
                     <Add />
                 </View>
             </ScrollView>
-        </SafeAreaView>
     );
 }

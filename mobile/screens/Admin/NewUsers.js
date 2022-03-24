@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { galleryStyles, usersStyles } from '../../styles/global';
 import { FontAwesome5 } from '@expo/vector-icons';
 import News from '../Main/News';
+import { Divider } from 'react-native-paper';
 
 export default function NewUsers() {
 
@@ -31,13 +32,13 @@ export default function NewUsers() {
                 data={users}
                 keyExtractor={item => item.key}
                 renderItem={({ item }) => (
-                    <View style={usersStyles.userItem}>
+                    <View style={usersStyles.newUserItem}>
                         <Text style={usersStyles.itemText}>{ item.firstName } { item.lastName }</Text>
                         <View style={usersStyles.itemIcon}>
-                            <TouchableOpacity>
+                            <TouchableOpacity style={usersStyles.icon}>
                                 <FontAwesome5 name="check" size={24} color="black" />
                             </TouchableOpacity>
-                            <TouchableOpacity style={{paddingLeft:40}}>
+                            <TouchableOpacity style={usersStyles.icon}>
                                 <FontAwesome5 name="times-circle" size={24} color="black" />
                             </TouchableOpacity>
                         </View>
