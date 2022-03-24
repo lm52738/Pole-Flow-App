@@ -14,8 +14,7 @@ function AppDrawer() {
     <Drawer.Navigator
     screenOptions={{
       header: ({ route, options }) => {
-        const title = getHeaderTitle(options, route.name);
-        return <Header title={title} />;
+        return <Header title={route.name} />;
       },
       drawerActiveBackgroundColor:'#f7edf8',
       drawerActiveTintColor:'#af49b6', 
@@ -23,7 +22,7 @@ function AppDrawer() {
         marginRight:'auto',
       }
     }}>
-        <Drawer.Screen name="Početna" component={MainScreen}
+        <Drawer.Screen name="POČETNA" component={MainScreen}
             options={{
               title: 'Početna',
               drawerIcon: () => (
@@ -31,7 +30,7 @@ function AppDrawer() {
               ),
           }}
         />
-        <Drawer.Screen name="Raspored" component={CalendarScreen}
+        <Drawer.Screen name="RASPORED" component={CalendarScreen}
              options={{
               title: 'Raspored',
               drawerIcon: () => (
@@ -39,7 +38,7 @@ function AppDrawer() {
               ),
           }}
         />
-        <Drawer.Screen name="Galerija" component={GalleryStack}
+        <Drawer.Screen name="GALERIJA" component={GalleryStack}
              options={{
               title: 'Galerija',
               drawerIcon: () => (
@@ -47,7 +46,7 @@ function AppDrawer() {
               ),
           }}
         />
-        <Drawer.Screen name="Profil" component={ProfileStack}
+        <Drawer.Screen name="PROFIL" component={ProfileStack}
              options={{
               title: 'Profil',
               drawerIcon: () => (
@@ -55,7 +54,7 @@ function AppDrawer() {
               ),
           }}
         />
-        <Drawer.Screen name="Grupe" component={GroupsStack}
+        <Drawer.Screen name="GRUPE" component={GroupsStack}
              options={{
               title: 'Grupe',
               drawerIcon: () => (
@@ -63,7 +62,7 @@ function AppDrawer() {
               ),
           }}
         />
-        <Drawer.Screen name="Korisnici" component={UsersStack}
+        <Drawer.Screen name="KORISNICI" component={UsersStack}
              options={{
               title: 'Korisnici',
               drawerIcon: () => (
@@ -71,7 +70,7 @@ function AppDrawer() {
               ),
           }}
         />
-        <Drawer.Screen name="Admin Početna" component={AdminStack}
+        <Drawer.Screen name="ADMIN POČETNA" component={AdminStack}
              options={{
               title: 'Admin Početna',
               drawerIcon: () => (

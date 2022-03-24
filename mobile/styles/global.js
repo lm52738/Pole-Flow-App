@@ -360,6 +360,11 @@ export const galleryStyles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 15,
     },
+    formRadio: {
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        paddingBottom: 15,
+    },
     inputs: {
         width: '90%',
         paddingBottom: 3,
@@ -368,6 +373,14 @@ export const galleryStyles = StyleSheet.create({
         marginBottom: 20,
         width: '100%',
         backgroundColor:'#ffffff'
+    },
+    picker:{
+        marginBottom: 20,
+        width: '100%',
+        backgroundColor:'#ffffff',
+        borderColor:'#737373',
+        borderWidth:1,
+        borderRadius:5
     },
     publish: {
         alignSelf: 'flex-start',
