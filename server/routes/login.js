@@ -17,12 +17,11 @@ router.post("/", async(req,res) => {
   console.log(password);
 
   let user = await User.fetchByEmail(mail);
-  console.log(user);
-
   if (user.id === undefined || !user.checkPassword(password)) {
     return res.sendStatus(403);
-  }else {
-    //osoba postoji
+  } else {
+    
+    console.log(user);
     const token = jwt.sign(
       {
         id: user.id,

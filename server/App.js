@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const createError = require("http-errors");
 const path = require("path");
+const cors = require("cors");
 
 const loginRouter = require('./routes/login');
 const signupRouter = require('./routes/signup');
@@ -13,6 +14,8 @@ const galleryRouter = require("./routes/gallery");
 const calendarRouter = require("./routes/calendar");
 
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));

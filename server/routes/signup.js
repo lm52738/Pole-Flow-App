@@ -35,27 +35,27 @@ router.post("/", async(req,res) => {
       return;
     }
 
-    const salt = bcrypt.genSaltSync(12);
-    const hash = bcrypt.hashSync(password1, salt);
-    newUser = new User(firstName, lastName, mail, dateOfBirth, phone, hash, role);
-    await newUser.persist();
+    // const salt = bcrypt.genSaltSync(12);
+    // const hash = bcrypt.hashSync(password1, salt);
+    // newUser = new User(firstName, lastName, mail, dateOfBirth, phone, hash, role);
+    // await newUser.persist();
 
 
-    const token = jwt.sign(
-      {
-        id: newUser.id,
-        mail: newUser.mail,
-      },
-      "${process.env.JWT_SECRET_KEY}",
-      {
-        expiresIn: "1y",
-      }
-    );
+    // const token = jwt.sign(
+    //   {
+    //     id: newUser.id,
+    //     mail: newUser.mail,
+    //   },
+    //   "${process.env.JWT_SECRET_KEY}",
+    //   {
+    //     expiresIn: "1y",
+    //   }
+    // );
 
-    return res.json({
-      token: token,
-      user: newUser,
-    });
+    // return res.json({
+    //   token: token,
+    //   user: newUser,
+    // });
 });
 
 module.exports = router;

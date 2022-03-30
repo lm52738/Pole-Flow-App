@@ -227,7 +227,7 @@ export const formStyles = StyleSheet.create({
         flex: 1,
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingTop: '5%'
+        paddingVertical: '5%'
     },
     inputs: {
         width: '90%',

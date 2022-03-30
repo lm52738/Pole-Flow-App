@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
-import { ImageBackground, View, Text, StyleSheet, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, TouchableOpacity,  } from 'react-native';
 import { formStyles, mainStyles } from '../../styles/global';
 import { TextInput, RadioButton } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
+import { Formik } from 'formik';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Form = () => {
-    prototype = LoginFormFields
     const navigation = useNavigation();
 
-    const [isError, setIsError] = useState(false);
-    const [message, setMessage] = useState('');
+    const server = axios.create({ baseURL: "http://192.168.100.34:5000"});
+
+    const [authError, setAuthError] = useState(null);
 
     const [isLogin, setIsLogin] = useState(true);
     const [isSignup, setIsSignup] = useState(false);
-    const [isSecure, setIsSecure] = useState(true);
-
-    const [checked, setChecked] = React.useState('clan');    
+    const [isSecure, setIsSecure] = useState(true); 
+    const [checked, setChecked] = React.useState('clan');   
 
     const showPassword = () => {
         setIsSecure(!isSecure);
@@ -31,39 +33,41 @@ const Form = () => {
         setIsSignup(true);
     };
 
-    const getMessage = () => {
-        const status = isError ? `Error: ` : `Success: `;
-        return status + message;
-    }
-
     if (isLogin) {
 
-        const login = async (data) => {
+        const logIn = async (values,formikActions) => {
+            console.log(values)
             setAuthError(null);
-        
+
             try {
-              const response = await axios.post("http://localhost:9000/login", data);
+              const res = await server.post('/login', {
+                  ...values
+              })
+
+              console.log(res.data);
+              formikActions.resetForm();
+              formikActions.setSubmitting(false);
         
-              if (response.data.token) {
-                localStorage.setItem("user", JSON.stringify(response.data));
+              if (res.data.token) {
+                await AsyncStorage.setItem("user", JSON.stringify(res.data));
+                navigation.navigate('MainScreen');
               }
-        
-              const link = localStorage.getItem("survey");
-              if (link) {
-                push(link);
-              } else {
-                push("/surveys");
-              }
+
             } catch (err) {
               console.log(err);
               setAuthError("Invalid credentials!");
             }
-          };
+        };
 
 
 
 
         return (
+        <Formik
+            initialValues={{ mail: '', password:'' }}
+            onSubmit={logIn}
+        >
+        {({ handleChange, handleSubmit, values }) => (
             <View style={mainStyles.card}>
                 <View style={formStyles.buttons}>
                     <TouchableOpacity style={formStyles.buttonLogin} onPress={changeToLogin}>
@@ -76,10 +80,12 @@ const Form = () => {
                 <View style={formStyles.form}>
                     <View style={formStyles.inputs}>
                         <TextInput 
-                            key={mail}
+                            onChangeText={handleChange('mail')}
                             mode='outlined' 
+                            keyboardType='email-address'
                             style={formStyles.input} 
                             label="Email"  
+                            value={values.mail}
                             activeOutlineColor='#b36cac'
                             left={<TextInput.Icon name="email"  />}
                             >
@@ -87,26 +93,58 @@ const Form = () => {
                     </View>    
                     <View style={formStyles.inputs}>
                         <TextInput 
-                            key={password}
+                            onChangeText={handleChange('password')}
                             mode='outlined'  
                             style={formStyles.input} 
                             label="Lozinka" 
+                            value={values.password}
                             activeOutlineColor='#b36cac' 
                             secureTextEntry={isSecure ? isSecure : false} 
                             right={<TextInput.Icon name="eye" onPress={showPassword}/>}
                             >
                         </TextInput>
                     </View>    
-                        
-                    <Text style={[formStyles.message, {color: isError ? 'red' : 'green'}]}>{message ? getMessage() : null}</Text>
                 </View>
-                <TouchableOpacity style={formStyles.buttonSubmit} onPress={() => navigation.navigate('MainScreen')}>
+                <TouchableOpacity style={formStyles.buttonSubmit} onPress={handleSubmit}>
                     <Text style={formStyles.buttonText}>Prijavi se</Text>
                 </TouchableOpacity>
             </View>
-        );
+        )}
+        </Formik>
+    );
+
     } else if (isSignup) {
+
+        const signUp = async (values,formikActions) => {
+            console.log(values)
+            setAuthError(null);
+
+            try {
+              const res = await server.post('/signup', {
+                  ...values
+              })
+
+              console.log(res.data);
+              formikActions.resetForm();
+              formikActions.setSubmitting(false);
+        
+              if (res.data.token) {
+                await AsyncStorage.setItem("user", JSON.stringify(res.data));
+                navigation.navigate('Options');
+              }
+
+            } catch (err) {
+              console.log(err);
+              setAuthError("Invalid credentials!");
+            }
+        };
+
         return (
+        <Formik
+            initialValues={{ firstName:'', lastName:'', phone:'', mail: '', password:'', verifyPassword:'', role:'' }}
+            onSubmit={signUp}
+        >
+        {({ handleChange, handleSubmit, values }) => (
             <View style={mainStyles.card}>
                 <View style={formStyles.buttons}>
                     <TouchableOpacity style={formStyles.buttonLogin} onPress={changeToLogin}>
@@ -117,55 +155,65 @@ const Form = () => {
                     </TouchableOpacity>
                 </View>
                 <View style={formStyles.form}>
-                <View style={formStyles.inputs}>
+                    <View style={formStyles.inputs}>
                         <TextInput 
-                            key={firstName}
                             mode='outlined' 
                             style={formStyles.input} 
+                            value={values.firstName}
                             label="Ime"
                             activeOutlineColor='#b36cac'
+                            onChangeText={handleChange('firstName')}
                             >
                         </TextInput>
                     </View> 
                     <View style={formStyles.inputs}>
                         <TextInput 
-                            key={lastName}
                             mode='outlined' 
                             style={formStyles.input} 
                             label="Prezime"
+                            value={values.lastName}
                             activeOutlineColor='#b36cac'
+                            onChangeText={handleChange('lastName')}
                             >
                         </TextInput>
                     </View> 
                     <View style={formStyles.inputs}>
+                        <DatePicker date={new Date()} onDateChange={handleChange('dateOfBirth')} />
+                    </View> 
+                    <View style={formStyles.inputs}>
                         <TextInput 
-                            key={phone}
+                            keyboardType='numeric'
                             mode='outlined' 
                             style={formStyles.input} 
                             label="Broj mobitela" 
+                            value={values.phone}
                             placeholder='000 0000 000'
                             activeOutlineColor='#b36cac'
+                            onChangeText={handleChange('phone')}
                             left={<TextInput.Icon name="phone"  />}
                             >
                         </TextInput>
                     </View> 
                     <View style={formStyles.inputs}>
                         <TextInput 
-                            key={mail}
                             mode='outlined' 
                             style={formStyles.input} 
                             label="Email"
+                            keyboardType='email-address'
+                            value={values.mail}
                             activeOutlineColor='#b36cac'
+                            onChangeText={handleChange('mail')}
                             left={<TextInput.Icon name="email"  />}>
                         </TextInput>
                     </View>    
                     <View style={formStyles.inputs}>
                         <TextInput 
-                            key={password}
                             mode='outlined'  
                             style={formStyles.input} 
                             label="Lozinka" 
+                            value={values.password}
                             activeOutlineColor='#b36cac' 
+                            onChangeText={handleChange('password')}
                             secureTextEntry={isSecure ? isSecure : false} 
                             right={<TextInput.Icon name="eye" onPress={showPassword}/>}
                             >
@@ -173,11 +221,12 @@ const Form = () => {
                     </View>   
                     <View style={formStyles.inputs}>
                         <TextInput 
-                            key={verifyPassword}
                             mode='outlined'  
                             style={formStyles.input} 
                             label="Ponovi lozinku" 
+                            value={values.verifyPassword}
                             activeOutlineColor='#b36cac' 
+                            onChangeText={handleChange('verifyPassword')}
                             secureTextEntry={isSecure ? isSecure : false} 
                             right={<TextInput.Icon name="eye" onPress={showPassword}/>}
                             >
@@ -188,7 +237,7 @@ const Form = () => {
                             value="clan"
                             color='#b36cac'
                             uncheckedColor='#b36cac'
-                            status={ checked === 'first' ? 'checked' : 'unchecked' }
+                            status={ checked === 'clan' ? 'checked' : 'unchecked' }
                             onPress={() => setChecked('clan')}
                         /> 
                         <Text style={formStyles.radioText}>Član Kluba</Text>
@@ -196,18 +245,19 @@ const Form = () => {
                             value="trener"
                             color='#b36cac'
                             uncheckedColor='#b36cac'
-                            status={ checked === 'second' ? 'checked' : 'unchecked' }
+                            status={ checked === 'trener' ? 'checked' : 'unchecked' }
                             onPress={() => setChecked('trener')}
                         />
                         <Text style={formStyles.radioText}>Trener</Text>
                     </View>
-                    <Text style={[formStyles.message, {color: isError ? 'red' : 'green'}]}>{message ? getMessage() : null}</Text>
                 </View>
-                <TouchableOpacity style={formStyles.buttonSubmit} onPress={() => navigation.navigate('Options')}>
+                <TouchableOpacity style={formStyles.buttonSubmit} onPress={handleSubmit}>
                     <Text style={formStyles.buttonText}>Dalje...</Text>
                 </TouchableOpacity>
             </View>
-        );
+        )}
+        </Formik>
+    );
     }
 };
 
