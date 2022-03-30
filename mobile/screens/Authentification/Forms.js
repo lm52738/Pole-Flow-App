@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity,  } from 'react-native';
+import { View, Text, TouchableOpacity, } from 'react-native';
 import { formStyles, mainStyles } from '../../styles/global';
-import { TextInput, RadioButton } from 'react-native-paper';
+import { TextInput, RadioButton, Button } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
-const Form = () => {
+const Form = () => {  
     const navigation = useNavigation();
 
     const server = axios.create({ baseURL: "http://192.168.100.34:5000"});
@@ -141,7 +142,7 @@ const Form = () => {
 
         return (
         <Formik
-            initialValues={{ firstName:'', lastName:'', phone:'', mail: '', password:'', verifyPassword:'', role:'' }}
+            initialValues={{ firstName:'', lastName:'', phone:'', mail: '', password:'', verifyPassword:'', role:'', dateOfBirth:''}}
             onSubmit={signUp}
         >
         {({ handleChange, handleSubmit, values }) => (
@@ -178,7 +179,18 @@ const Form = () => {
                         </TextInput>
                     </View> 
                     <View style={formStyles.inputs}>
-                        <DatePicker date={new Date()} onDateChange={handleChange('dateOfBirth')} />
+                        <TextInput 
+                            keyboardType='numeric'
+                            mode='outlined' 
+                            style={formStyles.input} 
+                            label="Datum rođenja" 
+                            value={values.dateOfBirth}
+                            placeholder='00/00/0000'
+                            activeOutlineColor='#b36cac'
+                            onChangeText={handleChange('dateOfBirth')}
+                            left={<TextInput.Icon name="calendar-blank"  />}
+                            >
+                        </TextInput>
                     </View> 
                     <View style={formStyles.inputs}>
                         <TextInput 
