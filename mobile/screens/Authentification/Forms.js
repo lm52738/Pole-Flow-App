@@ -5,15 +5,17 @@ import { TextInput, RadioButton } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 
 const Form = () => {
+    prototype = LoginFormFields
     const navigation = useNavigation();
 
     const [isError, setIsError] = useState(false);
     const [message, setMessage] = useState('');
+
     const [isLogin, setIsLogin] = useState(true);
     const [isSignup, setIsSignup] = useState(false);
     const [isSecure, setIsSecure] = useState(true);
-    const [checked, setChecked] = React.useState('first');
-    
+
+    const [checked, setChecked] = React.useState('clan');    
 
     const showPassword = () => {
         setIsSecure(!isSecure);
@@ -35,6 +37,32 @@ const Form = () => {
     }
 
     if (isLogin) {
+
+        const login = async (data) => {
+            setAuthError(null);
+        
+            try {
+              const response = await axios.post("http://localhost:9000/login", data);
+        
+              if (response.data.token) {
+                localStorage.setItem("user", JSON.stringify(response.data));
+              }
+        
+              const link = localStorage.getItem("survey");
+              if (link) {
+                push(link);
+              } else {
+                push("/surveys");
+              }
+            } catch (err) {
+              console.log(err);
+              setAuthError("Invalid credentials!");
+            }
+          };
+
+
+
+
         return (
             <View style={mainStyles.card}>
                 <View style={formStyles.buttons}>
@@ -48,6 +76,7 @@ const Form = () => {
                 <View style={formStyles.form}>
                     <View style={formStyles.inputs}>
                         <TextInput 
+                            key={mail}
                             mode='outlined' 
                             style={formStyles.input} 
                             label="Email"  
@@ -58,6 +87,7 @@ const Form = () => {
                     </View>    
                     <View style={formStyles.inputs}>
                         <TextInput 
+                            key={password}
                             mode='outlined'  
                             style={formStyles.input} 
                             label="Lozinka" 
@@ -89,6 +119,7 @@ const Form = () => {
                 <View style={formStyles.form}>
                 <View style={formStyles.inputs}>
                         <TextInput 
+                            key={firstName}
                             mode='outlined' 
                             style={formStyles.input} 
                             label="Ime"
@@ -98,6 +129,7 @@ const Form = () => {
                     </View> 
                     <View style={formStyles.inputs}>
                         <TextInput 
+                            key={lastName}
                             mode='outlined' 
                             style={formStyles.input} 
                             label="Prezime"
@@ -107,6 +139,7 @@ const Form = () => {
                     </View> 
                     <View style={formStyles.inputs}>
                         <TextInput 
+                            key={phone}
                             mode='outlined' 
                             style={formStyles.input} 
                             label="Broj mobitela" 
@@ -118,6 +151,7 @@ const Form = () => {
                     </View> 
                     <View style={formStyles.inputs}>
                         <TextInput 
+                            key={mail}
                             mode='outlined' 
                             style={formStyles.input} 
                             label="Email"
@@ -127,6 +161,7 @@ const Form = () => {
                     </View>    
                     <View style={formStyles.inputs}>
                         <TextInput 
+                            key={password}
                             mode='outlined'  
                             style={formStyles.input} 
                             label="Lozinka" 
@@ -138,6 +173,7 @@ const Form = () => {
                     </View>   
                     <View style={formStyles.inputs}>
                         <TextInput 
+                            key={verifyPassword}
                             mode='outlined'  
                             style={formStyles.input} 
                             label="Ponovi lozinku" 
@@ -149,19 +185,19 @@ const Form = () => {
                     </View>     
                     <View style={formStyles.inline}>
                         <RadioButton
-                            value="first"
+                            value="clan"
                             color='#b36cac'
                             uncheckedColor='#b36cac'
                             status={ checked === 'first' ? 'checked' : 'unchecked' }
-                            onPress={() => setChecked('first')}
+                            onPress={() => setChecked('clan')}
                         /> 
                         <Text style={formStyles.radioText}>Član Kluba</Text>
                         <RadioButton
-                            value="second"
+                            value="trener"
                             color='#b36cac'
                             uncheckedColor='#b36cac'
                             status={ checked === 'second' ? 'checked' : 'unchecked' }
-                            onPress={() => setChecked('second')}
+                            onPress={() => setChecked('trener')}
                         />
                         <Text style={formStyles.radioText}>Trener</Text>
                     </View>
