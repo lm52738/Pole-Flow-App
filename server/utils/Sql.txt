@@ -1,0 +1,99 @@
+CREATE TABLE TRENING
+(
+  idTrening INT NOT NULL,
+  dan VARCHAR(50) NOT NULL,
+  vrijemePoc DATE NOT NULL,
+  vrijemeZavr DATE NOT NULL,
+  trajanje DATE NOT NULL,
+  valjanost DATE NOT NULL,
+  PRIMARY KEY (idTrening)
+);
+
+CREATE TABLE OBAVIJEST
+(
+  idObavijest INT NOT NULL,
+  tekst VARCHAR(1000) NOT NULL,
+  naslov VARCHAR(100) NOT NULL,
+  PRIMARY KEY (idObavijest)
+);
+
+CREATE TABLE MULTIMEDIJA
+(
+  idMulti INT NOT NULL,
+  nazivMulti VARCHAR(100) NOT NULL,
+  PRIMARY KEY (idMulti)
+);
+
+CREATE TABLE ČLANARINA
+(
+  iznos INT NOT NULL,
+  datumUplate DATE NOT NULL,
+  mjesec VARCHAR(50) NOT NULL,
+  godina INT NOT NULL,
+  idČlan INT NOT NULL,
+  PRIMARY KEY (idČlan)
+);
+
+CREATE TABLE AKTIVNOST
+(
+  idAktivnost INT NOT NULL,
+  nazivAktivnost VARCHAR(80) NOT NULL,
+  PRIMARY KEY (idAktivnost)
+);
+
+CREATE TABLE PRAZNIK
+(
+  idPraznik INT NOT NULL,
+  datumPraznik DATE NOT NULL,
+  PRIMARY KEY (idPraznik)
+);
+
+CREATE TABLE treningPraznici
+(
+  idPraznik INT NOT NULL,
+  idTrening INT NOT NULL,
+  PRIMARY KEY (idPraznik, idTrening),
+  FOREIGN KEY (idPraznik) REFERENCES PRAZNIK(idPraznik),
+  FOREIGN KEY (idTrening) REFERENCES TRENING(idTrening)
+);
+
+CREATE TABLE KORISNIK
+(
+  ime VARCHAR(50) NOT NULL,
+  prezime VARCHAR(50) NOT NULL,
+  datumRod DATE NOT NULL,
+  mail VARCHAR(100) NOT NULL,
+  brMob CHAR(10) NOT NULL,
+  uloga INT NOT NULL,
+  brNadoknada INT NOT NULL,
+  lozinka VARCHAR(100) NOT NULL,
+  idKorisnik INT NOT NULL,
+  idČlan INT NOT NULL,
+  PRIMARY KEY (idKorisnik),
+  FOREIGN KEY (idČlan) REFERENCES ČLANARINA(idČlan),
+  UNIQUE (mail),
+  UNIQUE (brMob)
+);
+
+CREATE TABLE GRUPA
+(
+  idGrupa INT NOT NULL,
+  nazivGrupa VARCHAR(50) NOT NULL,
+  razina INT NOT NULL,
+  idTrener INT NOT NULL,
+  idAktivnost INT NOT NULL,
+  idTrening INT NOT NULL,
+  PRIMARY KEY (idGrupa),
+  FOREIGN KEY (idTrener) REFERENCES KORISNIK(idKorisnik),
+  FOREIGN KEY (idAktivnost) REFERENCES AKTIVNOST(idAktivnost),
+  FOREIGN KEY (idTrening) REFERENCES TRENING(idTrening)
+);
+
+CREATE TABLE ČlanGrupa
+(
+  idKorisnik INT NOT NULL,
+  idGrupa INT NOT NULL,
+  PRIMARY KEY (idKorisnik, idGrupa),
+  FOREIGN KEY (idKorisnik) REFERENCES KORISNIK(idKorisnik),
+  FOREIGN KEY (idGrupa) REFERENCES GRUPA(idGrupa)
+);
