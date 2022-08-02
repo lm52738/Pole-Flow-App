@@ -27,27 +27,27 @@ opisani u nastavku.
 	
 ## Zahtjevi
 1. Neregistrirani korisnik (inicijator) može:
-	(a) registrirati se i otvoriti račun na platformi
+	* registrirati se i otvoriti račun na platformi
 2. Registrirani Član Kluba može:
-	(a) pregledavati obavijesti
-	(b) pregledavati galeriju
-	(c) pregledavati i uređivati osobne podatke
-	(d) pregledavati raspored treninga za grupe u kojima trenira
-	(e) pregledavati stanje članarine
-	(f) dati povratnu informaciju o ne/dolasku na trening
-	(g) prijaviti se u sustav
+	* pregledavati obavijesti
+	* pregledavati galeriju
+	* pregledavati i uređivati osobne podatke
+	* pregledavati raspored treninga za grupe u kojima trenira
+	* pregledavati stanje članarine
+	* dati povratnu informaciju o ne/dolasku na trening
+	* prijaviti se u sustav
 3. Trener (inicijator) može:
-	(a) pregledavati obavijesti
-	(b) pregledavati galeriju
-	(c) pregledavati i uređivati osobne podatke
-	(d) pregledavati raspored trening za grupa koje trenira
-	(e) dati povratnu informaciju o dolaznosti na trening
-	(f) pregledavati stanje članarine
-	(g) prijaviti se u sustav
+	* pregledavati obavijesti
+	* pregledavati galeriju
+	* pregledavati i uređivati osobne podatke
+	* pregledavati raspored trening za grupa koje trenira
+	* dati povratnu informaciju o dolaznosti na trening
+	* pregledavati stanje članarine
+	* prijaviti se u sustav
 4. Administrator (inicijator) može:
-	(a) pregledavati obavijesti
-	(b) pisanje, uređivanje i brisanje obavijesti
-	(c) pregledavati galeriju
-	(d) pisanje, uređivanje i brisanje fotografija u galeriji
-	(e) pregledavati i uređivati osobne podatke
+	* pregledavati obavijesti
+	* pisanje, uređivanje i brisanje obavijesti
+	* pregledavati galeriju
+	* pisanje, uređivanje i brisanje fotografija u galeriji
+	* pregledavati i uređivati osobne podatke
 
